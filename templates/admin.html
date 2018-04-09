@@ -11,14 +11,14 @@
   </br>
   </br>
   <ul class="collection">
-    <li class="collection-item left-align"><a href="/admin/remove/{{site[0]}}/" class="waves-effect waves-light btn right white black-text z-depth-3" value="delete">Supprimer</a>
-      <a class="waves-effect waves-light btn right white black-text z-depth-3" href="/admin/update/{{site[0]}}/" value="modifie">Modifier</a>
+    <li class="collection-item left-align"><a href="/admin/remove/{{site[0]}}/" class="waves-effect waves-light btn right white black-text z-depth-2" value="delete">Supprimer</a>
+      <a class="waves-effect waves-light btn right white black-text z-depth-2" href="/admin/update/{{site[0]}}/" value="modifie">Modifier</a>
       <p>{{site[1]}}</p></li>
   </ul>
   {% endfor %}
 </div>
 <div class="container">
-    <a href="{{ url_for('admin_logout') }}" class="waves-effect waves-light btn right white black-text z-depth-3">Déconnexion</a>
-    <a href="{{ url_for('ajout') }}" class="waves-effect waves-light btn left white black-text z-depth-3 white black-text">Ajouter</a>
+    <a href="{{ url_for('admin_logout') }}" class="waves-effect waves-light btn right white black-text z-depth-2">Déconnexion</a>
+    <a href="{{ url_for('ajout') }}" class="waves-effect waves-light btn left white black-text z-depth-2 white black-text">Ajouter</a>
 </div>
 {% endblock %}
