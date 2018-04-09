@@ -81,7 +81,7 @@ scheduler = BackgroundScheduler()
 scheduler.start()
 scheduler.add_job(
     func=status_all,
-    trigger=IntervalTrigger(seconds=5),
+    trigger=IntervalTrigger(seconds=60),
     id='status_all',
     name='Ajout status',
     replace_existing=True)
