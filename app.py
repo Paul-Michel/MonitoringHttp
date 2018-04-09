@@ -5,6 +5,7 @@
 from flask import Flask, render_template, request, g, session, url_for
 from flask import redirect
 import requests
+from passlib.hash import argon2
 import mysql.connector
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.interval import IntervalTrigger
@@ -129,18 +130,20 @@ def fiche(id):
 
 
 @app.route('/login/', methods=['GET', 'POST'])
-def login():
+def login () :
     email = str(request.form.get('email'))
     password = str(request.form.get('password'))
 
     db = get_db()
-    db.execute('SELECT email, password, is_admin FROM user WHERE email = %(email)s', {'email': email})
+    db.execute('SELECT email, password, is_admin FROM user WHERE email = %(email)s', {'email' : email})
     users = db.fetchall()
 
     valid_user = False
-    for user in users:
+    for user in users :
+        if argon2.verify(password, user[1]) :
             valid_user = user
-    if valid_user:
+
+    if valid_user :
         session['user'] = valid_user
         return redirect(url_for('admin'))
 
