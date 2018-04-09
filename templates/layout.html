@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>{% block titre %}Titre par défaut{% endblock %}</title>
+    </head>
+    <body>
+
+        {% block nav %}
+        <nav>
+          <div class="nav-wrapper white z-depth-4 black-text">
+            <a href="{{url_for('index')}}" class="brand-logo black-text">Http status</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a class="black-text" href="{{ url_for('login')}}">Admin</a></li>
+            </ul>
+          </div>
+        </nav>
+        <ul class="sidenav" id="mobile-demo">
+          <li><a class="black-text" href="{{url_for('login')}}">Admin</a></li>
+        </ul>
+        {% endblock %}
+        {% block body %}
+        {% endblock %}
+    </body>
+    <script>  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });</script>
+</html>
